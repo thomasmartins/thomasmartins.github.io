@@ -28,7 +28,8 @@ url: "https://thomasmartins.github.io" # the base hostname & protocol for your s
 github_username:  thomasmartins
 
 # Build settings
-theme: jekyll-theme-minimal
+#theme: jekyll-theme-minimal
+theme: minima
 plugins:
   - jekyll-feed
 
