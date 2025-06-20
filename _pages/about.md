@@ -7,7 +7,7 @@ author_profile: true
 
 # Welcome!
 
-Hi, I’m **Thomas Martins 🇧🇷 / Martinez 🇪🇸** —  
+Hi, I’m **Thomas Martins 🇧🇷 / Martinez 🇪🇸**,
 an economist and statistician with a strong background in **time series forecasting** and **financial econometrics**.
 
 My research interests include:
