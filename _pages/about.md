@@ -1,6 +1,7 @@
 ---
 layout: home
 title: "Thomas Martins / Martinez"
+permalink: /about/
 author_profile: true
 ---
 
