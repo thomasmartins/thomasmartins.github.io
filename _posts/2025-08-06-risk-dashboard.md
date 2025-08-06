@@ -1,8 +1,9 @@
 ---
-title: "From Compliance to Dashboard: Building a Basel III Risk Platform with Streamlit and PostgreSQL"
+title: 'From Compliance to Dashboard: Building a Basel III Risk Platform with Streamlit and PostgreSQL'
+author: "Thomas Martins"
 date: 2025-08-06
 layout: post
-tags: [sqlalchemy, basel-iii, streamlit, sql, risk-management, data-engineering]
+keywords: [sqlalchemy, basel-iii, streamlit, sql, risk-management, data-engineering]
 ---
 
 ## Introduction
