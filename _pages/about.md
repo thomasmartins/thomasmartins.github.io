@@ -1,8 +1,51 @@
 ---
+layout: home
+title: "Thomas Martins / Martinez"
 permalink: /about/
-title: "About"
+author_profile: true
 ---
 
-Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
+# Welcome!
 
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+Hi, I’m **Thomas Martins 🇧🇷 / Martinez 🇪🇸**,
+a quantitative risk analyst, economist and statistician with a strong background in **time series forecasting** and **financial econometrics**.
+
+## 🧰 Risk Management Tools
+
+I build full-stack, production-grade tools for risk analytics and supervisory reporting, combining end-to-end data pipelines, probabilistic programming and economic models to deliver reproducible and interpretable outputs for regulatory metrics and risk management.
+
+My portfolio includes three projects that demonstrate my ability to build data pipelines, deploy interactive dashboards, and integrate quantitative methods in a modern risk infrastructure:
+
+- **Basel III Risk Data Pipeline & Interactive Dashboard**
+
+An end-to-end platform for Basel III liquidity, capital, and IRRBB metrics — including PostgreSQL schema design, SQLAlchemy integration, and Streamlit dashboard deployment.
+[**Live App**](https://basel-risk-pipeline-tmartins.streamlit.app/) | [**GitHub**](https://github.com/thomasmartins/basel-risk-pipeline) | [**Blog**](/posts/2025-08-06-risk-dashboard)
+
+- **Bayesian Forecasting of IRRBB with SVARs** (upcoming)
+- **Capital Optimization with Reinforcement Learning** (upcoming)
+
+## 🎓 Research and Writing
+
+Alongside my professional activities, my research interests include:
+
+- **Macrofinance**
+- **Fiscal-monetary policy interactions**
+- **Bayesian macroeconometrics**
+- The **macroeconomic consequences of demographic change**
+
+I’m passionate about using **Bayesian methods** and **structural modeling** to answer complex economic questions at the intersection of statistics, finance and macroeconomics.
+
+Curious about my academic work?  
+Visit my [**Research page**](/research/) for ongoing projects and ideas.
+
+You can also explore some of my [**Blog posts**](/posts/)
+
+I have an open-access digital book:  
+[**Bayesian Methods in Asset Pricing**](https://thomasmartins.github.io/BAP_book/)
+
+## 📬 Contact
+
+Feel free to reach out by email:  
+**[thomascsmartins (at) gmail.com](mailto:thomascsmartins@gmail.com)**
+
+Thanks for visiting!
