@@ -42,7 +42,7 @@ This structure provides a normalized view of banking exposures suitable for risk
 
 Here’s a simplified schema definition for the core tables:
 
-```sql
+```{sql}
 -- Table: balance_sheet
 CREATE TABLE balance_sheet (
     id SERIAL PRIMARY KEY,
@@ -108,7 +108,7 @@ The query layer, implemented in `src/queries.py`, decouples data access from met
 
 Here’s an example from `src/queries.py` showing how balance sheet entries are fetched for a selected scenario:
 
-```python
+```{python}
 # src/queries.py
 
 import pandas as pd
@@ -174,7 +174,7 @@ Interactive features include:
 
 Below is an example from the IRRBB page showing a ∆EVE bar chart under parallel shock scenarios:
 
-```python
+```{python}
 # dashboard/IRRBB.py
 
 import streamlit as st
