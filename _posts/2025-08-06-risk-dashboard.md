@@ -5,7 +5,6 @@ author: "Thomas Martins"
 layout: single
 author_profile: true
 date: 2025-08-06
-permalink: /posts/risk-dashboard/
 tags: 
   - SQLAlchemy
   - Basel III
