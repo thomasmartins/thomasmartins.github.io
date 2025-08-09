@@ -1,15 +1,22 @@
-/* Make all fenced code blocks smaller in posts */
+/* Make ALL fenced code blocks smaller, guaranteed */
+.page__content pre,
+.page__content pre code,
+.page__content .highlight pre,
 .page__content .highlighter-rouge pre,
-.page__content pre.highlight {
-  font-size: 0.85em;   /* Adjust size to taste */
-  line-height: 1.4;
-  overflow-x: auto;    /* Horizontal scroll for long lines */
+.page__content figure.highlight pre {
+  font-size: 0.85em !important;   /* shrink everything inside code blocks */
+  line-height: 1.45 !important;
+  overflow-x: auto;                /* horizontal scroll for long lines */
   white-space: pre;
   padding: 0.75rem 1rem;
   border-radius: 6px;
 }
 
-/* Optional: inline code size in paragraphs */
-.page__content code {
-  font-size: 0.9em;
+/* Keep inline code (in running text) readable */
+.page__content p code,
+.page__content li code,
+.page__content td code {
+  font-size: 0.95em !important;   /* slightly smaller than body, but not tiny */
+  padding: 0.1em 0.25em;
+  border-radius: 4px;
 }
