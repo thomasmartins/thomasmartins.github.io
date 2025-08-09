@@ -1,0 +1,17 @@
+/* Smaller, nicer code blocks site-wide */
+.highlighter-rouge pre,
+pre.highlight {
+  font-size: 0.85em;       /* adjust to taste (0.80–0.90 work well) */
+  line-height: 1.4;
+  overflow-x: auto;        /* horizontal scroll for wide lines */
+  white-space: pre;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+}
+
+/* Optional: inline code size */
+code {
+  font-size: 0.9em;
+  padding: 0.1em 0.25em;
+  border-radius: 4px;
+}

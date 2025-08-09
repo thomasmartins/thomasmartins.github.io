@@ -55,6 +55,8 @@ plugins:
   - jemoji
   - jekyll-include-cache
   - jekyll-remote-theme
+  
+minimal_mistakes_skin: default
 
 author:
   name   : "Thomas Martins"
