@@ -1,17 +1,15 @@
-/* Smaller, cleaner code blocks (site-wide) */
-.highlighter-rouge pre,
-pre.highlight {
-  font-size: 0.85em;   /* tweak to taste: 0.80–0.90 */
+/* Make all fenced code blocks smaller in posts */
+.page__content .highlighter-rouge pre,
+.page__content pre.highlight {
+  font-size: 0.85em;   /* Adjust size to taste */
   line-height: 1.4;
-  overflow-x: auto;    /* horizontal scroll for wide lines */
+  overflow-x: auto;    /* Horizontal scroll for long lines */
   white-space: pre;
   padding: 0.75rem 1rem;
   border-radius: 6px;
 }
 
-/* Optional: inline code */
-code {
+/* Optional: inline code size in paragraphs */
+.page__content code {
   font-size: 0.9em;
-  padding: 0.1em 0.25em;
-  border-radius: 4px;
 }
