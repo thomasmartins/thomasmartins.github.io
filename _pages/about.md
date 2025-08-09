@@ -18,7 +18,7 @@ My portfolio includes three projects that demonstrate my ability to build data p
 
 - **Basel III Risk Data Pipeline & Interactive Dashboard**
 
-An end-to-end platform for Basel III liquidity, capital, and IRRBB metrics — including PostgreSQL schema design, SQLAlchemy integration, and Streamlit dashboard deployment.
+An end-to-end platform for Basel III liquidity, capital, and IRRBB metrics, including PostgreSQL schema design, SQLAlchemy integration, and Streamlit dashboard deployment.
 [**Live App**](https://basel-risk-pipeline-tmartins.streamlit.app/) | [**GitHub**](https://github.com/thomasmartins/basel-risk-pipeline) | [**Blog**](https://thomasmartins.github.io/posts/risk-dashboard/)
 
 - **Bayesian Forecasting of IRRBB with SVARs** (upcoming)
