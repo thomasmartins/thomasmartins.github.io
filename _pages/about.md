@@ -21,7 +21,11 @@ My portfolio includes three projects that demonstrate my ability to build data p
 An end-to-end platform for Basel III liquidity, capital, and IRRBB metrics, including PostgreSQL schema design, SQLAlchemy integration, and Streamlit dashboard deployment.
 [**Live App**](https://basel-risk-pipeline-tmartins.streamlit.app/) | [**GitHub**](https://github.com/thomasmartins/basel-risk-pipeline) | [**Blog**](https://thomasmartins.github.io/posts/risk-dashboard/)
 
-- **Bayesian Forecasting of IRRBB with SVARs** (upcoming)
+- **Bayesian SVAR analysis for macroeconomic and IRRBB forecasting with Python** 
+
+A research project that links Bayesian macroeconomic modeling and scalable probabilistic programming in Python with Basel III IRRBB scenarios and NII/EVE impacts.
+[**Jupyter**](https://thomasmartins.github.io/IRRBB_SVAR_forecasting/notebooks/MAIN.html) | [**GitHub**](https://github.com/thomasmartins/IRRBB_SVAR_forecasting) | [**Blog**](https://thomasmartins.github.io/posts/irrbb-svar/)
+
 - **Capital Optimization with Reinforcement Learning** (upcoming)
 
 ## 🎓 Research and Writing
