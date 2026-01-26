@@ -26,7 +26,10 @@ An end-to-end platform for Basel III liquidity, capital, and IRRBB metrics, incl
 A research project that links Bayesian macroeconomic modeling and scalable probabilistic programming in Python with Basel III IRRBB scenarios and NII/EVE impacts.
 [**Jupyter**](https://thomasmartins.github.io/IRRBB_SVAR_forecasting/notebooks/MAIN.html) | [**GitHub**](https://github.com/thomasmartins/IRRBB_SVAR_forecasting) | [**Blog**](https://thomasmartins.github.io/posts/irrbb-svar/)
 
-- **Capital Optimization with Reinforcement Learning** (upcoming)
+- **Reinforcement Learning and Optimal Control for IRRBB Hedging Under Uncertainty** 
+
+A quantitative framework for interest-rate risk hedging combining no-arbitrage term-structure models (Diebold–Li / DNS and AFNS) and stochastic simulation of yield-curve dynamics for NII hedging using optimal control and reinforcement learning.
+[**Jupyter**](https://thomasmartins.github.io/rl_opt_control_nii/nii_opt_ctrl_rl_final.html) | [**Pluto.jl**](https://pluto.land/n/vfjgz9qw)
 
 ## 🎓 Research and Writing
 
