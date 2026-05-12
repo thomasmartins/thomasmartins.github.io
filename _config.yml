@@ -24,6 +24,8 @@ search: true
  
 # Build settings
 markdown: kramdown
+kramdown:
+  math_engine: null   # let MathJax (loaded in _includes/head/custom.html) process raw $...$ / $$...$$
 remote_theme: mmistakes/minimal-mistakes
 # Outputting
 permalink: /:categories/:title/
