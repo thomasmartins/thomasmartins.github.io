@@ -74,7 +74,7 @@ $$
 \right].
 $$
 
-For classical statistics (frequentist) that's the end of it: maximise the likelihood, report standard errors. The Bayesian version is more interesting: wrap the whole Kalman recursion in `pytensor.scan` (PyMC's loop primitive) and let NUTS auto-differentiate through it, sampling the full posterior over \\((\\boldsymbol\\mu, \\boldsymbol\\Phi, \\mathbf Q, \\sigma_{\\text{obs}})\\).
+For classical statistics (frequentist) that's the end of it: maximise the likelihood, report standard errors. The Bayesian version is more interesting: wrap the whole Kalman recursion in `pytensor.scan` (PyMC's loop primitive) and let NUTS auto-differentiate through it, sampling the full posterior over $$(\boldsymbol\mu, \boldsymbol\Phi, \mathbf Q, \sigma_{\text{obs}})$$.
 
 What you get out is not just point estimates but a **joint posterior** over all factor dynamics, which is exactly what the downstream models need. The yield curve fit RMSE across 132 months × 8 maturities is **0.066 pp**.
 
@@ -94,18 +94,18 @@ This is wrong for two reasons we already saw: it doesn't allow lagged adjustment
 
 ## Sluggish adjustment: an error correction model
 
-Define a long-run equilibrium rate \\(r^*_{s,t-1}\\) (the static regression above), and let observed rates close the gap to it at a segment-specific speed \\(\\gamma_s\\):
+Define a long-run equilibrium rate $$r^*_{s,t-1}$$ (the static regression above), and let observed rates close the gap to it at a segment-specific speed $$\gamma_s$$:
 
 $$
 \Delta r_{s,t} \;=\; \gamma_s\,(r_{s,t-1} - r^*_{s,t-1}) + \varepsilon_{s,t},
 \qquad \gamma_s \in (-1, 0).
 $$
 
-The half-life of adjustment is \\(-\\log 2 / \\log(1+\\gamma_s)\\) months. The estimated half-lives range from **0.9 months for corporates** (almost instant repricing) to **3.0 months for retail current accounts** (slow).
+The half-life of adjustment is $$-\log 2 / \log(1+\gamma_s)$$ months. The estimated half-lives range from **0.9 months for corporates** (almost instant repricing) to **3.0 months for retail current accounts** (slow).
 
 ## The regime-switching part
 
-To handle the structural break, \\(r^*\\) becomes a function of a hidden binary regime \\(z_t \\in \\{0, 1\\}\\):
+To handle the structural break, $$r^*$$ becomes a function of a hidden binary regime $$z_t \in \{0, 1\}$$:
 
 $$
 r^*_{s,t-1}(z_t) \;=\; \alpha_s
@@ -114,19 +114,19 @@ r^*_{s,t-1}(z_t) \;=\; \alpha_s
 + \beta^{C}_s\,C_{t-1}.
 $$
 
-with \\(z_t\\) following a first-order Markov chain. Since \\(z_t\\) is unobserved, we can't condition on it, thus we have to marginalise it out. That's the **Hamilton (1989) filter**: the discrete-state analogue of the Kalman filter.
+with $$z_t$$ following a first-order Markov chain. Since $$z_t$$ is unobserved, we can't condition on it, thus we have to marginalise it out. That's the **Hamilton (1989) filter**: the discrete-state analogue of the Kalman filter.
 
-The Hamilton filter does the same predict–update dance as Kalman, but with categorical states. The predict step is a matrix–vector multiply \\(\\xi_{t\\mid t-1} = P^\\top \\xi_{t-1\\mid t-1}\\); the update step is Bayes' rule applied element-wise. The denominator of the update is the one-step-ahead likelihood contribution: summing the log of that over \\(t\\) gives the marginal log-likelihood we hand to NUTS.
+The Hamilton filter does the same predict–update dance as Kalman, but with categorical states. The predict step is a matrix–vector multiply $$\xi_{t\mid t-1} = P^\top \xi_{t-1\mid t-1}$$; the update step is Bayes' rule applied element-wise. The denominator of the update is the one-step-ahead likelihood contribution: summing the log of that over $$t$$ gives the marginal log-likelihood we hand to NUTS.
 
 Just like the Kalman filter in stage 1, the Hamilton filter lives inside a `pytensor.scan` loop, so NUTS differentiates through it and samples the **full joint posterior over regime probabilities, the transition matrix, and the segment-level betas simultaneously**. There is no separate EM step or post-hoc regime classification.
 
 ## Identification
 
-The two regimes are otherwise interchangeable (a label-swap symmetry). Standard fix: impose a sign constraint. We model the regime-1 pass-through as \\(\\mu^{(1)}_{\\beta L} = \\mu^{(0)}_{\\beta L} + \\delta\\) with \\(\\delta\\sim\\text{HalfNormal}(0.30)\\), forcing \\(\\delta > 0\\). Regime 1 is *defined* as the higher-pass-through state.
+The two regimes are otherwise interchangeable (a label-swap symmetry). Standard fix: impose a sign constraint. We model the regime-1 pass-through as $$\mu^{(1)}_{\beta L} = \mu^{(0)}_{\beta L} + \delta$$ with $$\delta\sim\text{HalfNormal}(0.30)$$, forcing $$\delta > 0$$. Regime 1 is *defined* as the higher-pass-through state.
 
 ## Hierarchical partial pooling
 
-The four segments each get their own parameters, but they're drawn from common population distributions (\\(\\beta^{L,(k)}_s \\sim \\mathcal{N}(\\mu^{(k)}_{\\beta L},\\;\\sigma_{\\beta L})\\), etc.). This is **partial pooling**: noisy segment estimates get shrunk toward the population mean, while well-identified segments retain their own estimate. With only \\(S=4\\) segments the pooling effect is mild, but the structure naturally encodes a sensible prior: similar segments should have similar pass-through.
+The four segments each get their own parameters, but they're drawn from common population distributions ($$\beta^{L,(k)}_s \sim \mathcal{N}(\mu^{(k)}_{\beta L},\;\sigma_{\beta L})$$, etc.). This is **partial pooling**: noisy segment estimates get shrunk toward the population mean, while well-identified segments retain their own estimate. With only $$S=4$$ segments the pooling effect is mild, but the structure naturally encodes a sensible prior: similar segments should have similar pass-through.
 
 Non-centred parameterisation throughout, to avoid the funnel-shaped posteriors that hierarchical models produce when group variances are small.
 
@@ -162,27 +162,27 @@ $$
 + \varepsilon_{s,t},
 $$
 
-where \\(\\text{spread}_{s,t} = y^{5\\mathrm y}_t - r_{s,t}\\) is the opportunity cost, and
+where $$\text{spread}_{s,t} = y^{5\mathrm y}_t - r_{s,t}$$ is the opportunity cost, and
 
 $$
 \beta_s(p) \;=\; \beta^0_s + \Delta\beta_s\cdot p,\qquad
 \beta^0_s,\,\Delta\beta_s < 0.
 $$
 
-The interesting trick is in \\(p_{t-1}\\). We **don't introduce a second hidden Markov chain** for the volume model. Instead, \\(p_{t-1}\\) is the filtered regime probability \\(P(z_{t-1}=1 \\mid \\text{data})\\) taken **directly from stage 2's Hamilton filter**. The volume model uses the regime dynamics inferred by the rates model as a soft, continuous covariate. No double-counting, no separate filter, and the spread sensitivity is allowed to amplify smoothly as the regime transitions.
+The interesting trick is in $$p_{t-1}$$. We **don't introduce a second hidden Markov chain** for the volume model. Instead, $$p_{t-1}$$ is the filtered regime probability $$P(z_{t-1}=1 \mid \text{data})$$ taken **directly from stage 2's Hamilton filter**. The volume model uses the regime dynamics inferred by the rates model as a soft, continuous covariate. No double-counting, no separate filter, and the spread sensitivity is allowed to amplify smoothly as the regime transitions.
 
 ## A technical aside: avoiding the hierarchical funnel
 
-In hierarchical Bayesian models, the standard half-normal prior on group standard deviations has positive density at zero. With only four segments informing \\(\\sigma\\), the posterior can collapse near zero, and that creates a textbook geometric funnel that NUTS struggles with, even with non-centred parameterisation. Initially the volume model produced **124 divergences out of 8000 draws**.
+In hierarchical Bayesian models, the standard half-normal prior on group standard deviations has positive density at zero. With only four segments informing $$\sigma$$, the posterior can collapse near zero, and that creates a textbook geometric funnel that NUTS struggles with, even with non-centred parameterisation. Initially the volume model produced **124 divergences out of 8000 draws**.
 
-The fix was to replace `HalfNormal` priors on the population \\(\\sigma\\) scales with **`LogNormal`** priors, which have zero density at zero:
+The fix was to replace `HalfNormal` priors on the population $$\sigma$$ scales with **`LogNormal`** priors, which have zero density at zero:
 
 $$
 \sigma_{\log|\beta^0|},\;\sigma_{\log|\Delta\beta|},\;\sigma_{\text{logit}\,\rho}
 \;\sim\; \text{LogNormal}(\log 0.5,\;0.4).
 $$
 
-This pushes the prior cleanly off the funnel apex. After this and a target acceptance bump to 0.99, divergences dropped to **11 out of 16000 draws** (0.07%) with \\(\\hat R = 1.00\\) and ESS bulk > 3000 across all hyperparameters. Parameter recovery was unchanged. The issue was geometric, not informational.
+This pushes the prior cleanly off the funnel apex. After this and a target acceptance bump to 0.99, divergences dropped to **11 out of 16000 draws** (0.07%) with $$\hat R = 1.00$$ and ESS bulk > 3000 across all hyperparameters. Parameter recovery was unchanged. The issue was geometric, not informational.
 
 ## What the volume model recovers
 
