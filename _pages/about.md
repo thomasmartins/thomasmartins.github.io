@@ -31,6 +31,12 @@ A research project that links Bayesian macroeconomic modeling and scalable proba
 A quantitative framework for interest-rate risk hedging combining no-arbitrage term-structure models (Diebold–Li / DNS and AFNS) and stochastic simulation of yield-curve dynamics for NII hedging using optimal control and reinforcement learning.
 [**Jupyter**](https://thomasmartins.github.io/rl_opt_control_nii/nii_opt_ctrl_rl_final.html) | [**Pluto.jl**](https://pluto.land/n/vfjgz9qw)
 
+- **Bayesian State-Space and Hierarchical Modelling of Bank Deposit Rates** 
+
+A model for non-maturing deposit rates combining state-space time series modeling for the yield-curve and Bayesian hierarchical modeling for sector heterogeneity and volume. 
+[**Jupyter**](https://thomasmartins.github.io/nmd-rates-pymc/notebooks/00_main.html) | [**GitHub**](https://github.com/thomasmartins/nmd-rates-pymc) | [**Blog**](https://thomasmartins.github.io/posts/bayesian-nmd-rates/)
+
+
 ## 🎓 Research and Writing
 
 Alongside my professional activities, my research interests include:
